@@ -1,66 +1,143 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Link from 'next/link';
+import FadeIn from '@/components/FadeIn';
+import SectionHeader from '@/components/SectionHeader';
+import styles from './page.module.css';
+
+const focusAreas = [
+  {
+    icon: '📚',
+    title: 'Education & Literacy',
+    desc: 'Promoting literacy and quality education for underprivileged children, supporting the Right to Education for all.',
+    color: 'terra',
+  },
+  {
+    icon: '🏥',
+    title: 'Healthcare Access',
+    desc: 'Organizing health camps, awareness campaigns, and medical aid to marginalized communities.',
+    color: 'jade',
+  },
+  {
+    icon: '👩',
+    title: 'Women Empowerment',
+    desc: 'Skill development programs, gender equality advocacy, and protecting women\'s rights.',
+    color: 'saffron',
+  },
+  {
+    icon: '🌱',
+    title: 'Environment',
+    desc: 'Afforestation, waste management, and organic farming awareness for a sustainable future.',
+    color: 'terra',
+  },
+  {
+    icon: '⚖️',
+    title: 'Human Rights',
+    desc: 'RTI activities, legal aid, and combating discrimination based on caste, gender, or religion.',
+    color: 'jade',
+  },
+  {
+    icon: '🏘️',
+    title: 'Rural Development',
+    desc: 'Agricultural development, self-help groups, and microfinance to empower rural communities.',
+    color: 'saffron',
+  },
+];
+
+const stats = [
+  { num: '15+', label: 'Program Areas' },
+  { num: '3', label: 'Land Assets' },
+  { num: '∞', label: 'Community Reach' },
+];
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      {/* ─── HERO ─── */}
+      <section className={styles.hero} aria-label="Hero">
+        <div className={styles.orb1} aria-hidden="true" />
+        <div className={styles.orb2} aria-hidden="true" />
+        <div className={styles.orb3} aria-hidden="true" />
+
+        <div className={styles.heroInner}>
+          <FadeIn delay={0}>
+            <span className={styles.heroBadge}>Registered NGO · Hyderabad</span>
+          </FadeIn>
+
+          <FadeIn delay={0.1}>
+            <h1 className={styles.heroTitle}>
+              Empowering Communities,{' '}
+              <span className={styles.heroAccent}>Transforming Lives</span>
+            </h1>
+          </FadeIn>
+
+          <FadeIn delay={0.2}>
+            <p className={styles.heroSub}>
+              Working for the social, economic, and cultural upliftment of marginalized
+              communities across Telangana.
+            </p>
+          </FadeIn>
+
+          <FadeIn delay={0.3}>
+            <div className={styles.heroActions}>
+              <Link href="/programs" className="btn btn-primary">
+                Our Programs
+              </Link>
+              <Link href="/join" className="btn btn-outline-white">
+                Become a Member
+              </Link>
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={0.45}>
+            <div className={styles.heroStats}>
+              {stats.map(s => (
+                <div key={s.label} className={styles.stat}>
+                  <div className={styles.statNum}>{s.num}</div>
+                  <div className={styles.statLabel}>{s.label}</div>
+                </div>
+              ))}
+            </div>
+          </FadeIn>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+      </section>
+
+      {/* ─── FOCUS AREAS ─── */}
+      <section className={styles.focusSection} aria-label="Focus areas">
+        <div className="container">
+          <FadeIn>
+            <SectionHeader
+              label="What We Do"
+              title="Our Core Focus Areas"
+              subtitle="Holistic community development across multiple dimensions"
             />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </FadeIn>
+
+          <div className={styles.cardsGrid}>
+            {focusAreas.map((area, i) => (
+              <FadeIn key={area.title} delay={i * 0.08}>
+                <div className={`${styles.focusCard} card-base`}>
+                  <div className={`${styles.cardIcon} ${styles[`icon-${area.color}`]}`} aria-hidden="true">
+                    {area.icon}
+                  </div>
+                  <h3 className={styles.cardTitle}>{area.title}</h3>
+                  <p className={styles.cardDesc}>{area.desc}</p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+
+          <FadeIn delay={0.2}>
+            <div className={styles.ctaBanner}>
+              <div>
+                <p className={styles.ctaBannerTitle}>Ready to make a difference?</p>
+                <p className={styles.ctaBannerSub}>Join us and help uplift communities in need.</p>
+              </div>
+              <Link href="/join" className="btn btn-terra">
+                Support Our Mission →
+              </Link>
+            </div>
+          </FadeIn>
         </div>
-      </main>
-    </div>
+      </section>
+    </>
   );
 }

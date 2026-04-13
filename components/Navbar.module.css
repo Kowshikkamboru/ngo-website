@@ -1,0 +1,222 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: rgba(253, 250, 247, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  transition: box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.header.scrolled {
+  box-shadow: 0 2px 20px rgba(124, 74, 45, 0.1);
+  background: rgba(253, 250, 247, 0.97);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  gap: 1rem;
+}
+
+/* ─── Logo ─── */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.logoEmblem {
+  width: 42px;
+  height: 42px;
+  background: var(--terra);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.25s;
+}
+
+.logo:hover .logoEmblem {
+  background: var(--terra-light);
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.orgName {
+  font-family: 'Playfair Display', serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--terra);
+  white-space: nowrap;
+}
+
+.tagline {
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+/* ─── Nav Links ─── */
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  list-style: none;
+}
+
+.navLink {
+  display: block;
+  padding: 6px 12px;
+  border-radius: 6px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 400;
+  transition: color 0.2s, background 0.2s;
+  white-space: nowrap;
+}
+
+.navLink:hover {
+  color: var(--terra);
+  background: var(--terra-pale);
+}
+
+.navLink.active {
+  color: var(--terra);
+  font-weight: 600;
+  background: var(--terra-pale);
+}
+
+/* ─── CTA Button ─── */
+.ctaBtn {
+  padding: 9px 20px;
+  font-size: 13px;
+  border-radius: 6px;
+}
+
+.desktopCta { display: flex; }
+
+/* ─── Mobile CTA inside list (hidden on desktop) ─── */
+.mobileCtaWrap { display: none; }
+
+/* ─── Hamburger ─── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 4px;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+.hamburger:hover { background: var(--terra-pale); }
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--ink);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease;
+  transform-origin: center;
+}
+
+.hamburgerOpen span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburgerOpen span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.hamburgerOpen span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ─── Overlay ─── */
+.overlay {
+  position: fixed;
+  inset: 68px 0 0 0;
+  background: rgba(30, 26, 22, 0.4);
+  backdrop-filter: blur(2px);
+  z-index: 150;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+  .desktopCta { display: none; }
+
+  .navLinks {
+    position: fixed;
+    top: 68px;
+    right: 0;
+    width: min(280px, 85vw);
+    height: calc(100vh - 68px);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    background: var(--white);
+    border-left: 1px solid var(--border);
+    padding: 1.5rem 1rem;
+    z-index: 200;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+  }
+
+  .navLinks.open {
+    transform: translateX(0);
+  }
+
+  .navLink {
+    width: 100%;
+    font-size: 15px;
+    padding: 10px 14px;
+  }
+
+  .mobileCtaWrap {
+    display: block;
+    width: 100%;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .mobileCtaWrap .ctaBtn {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 15px;
+    text-align: center;
+  }
+
+  .orgName { font-size: 11px; }
+  .tagline { display: none; }
+}
+
+@media (max-width: 400px) {
+  .nav { padding: 0 1rem; }
+  .logoEmblem { width: 36px; height: 36px; }
+}

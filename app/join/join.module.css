@@ -1,0 +1,185 @@
+.page {
+  min-height: 100vh;
+}
+
+.pageHero {
+  background: linear-gradient(135deg, #F5EDE5 0%, #fff 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 4rem 1.5rem 3rem;
+  text-align: center;
+}
+
+.pageTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: var(--ink);
+  margin-top: 0.5rem;
+  line-height: 1.2;
+}
+
+.pageSub {
+  color: var(--muted);
+  font-size: 15px;
+  margin-top: 0.6rem;
+  font-weight: 300;
+}
+
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 5rem;
+}
+
+/* ─── Join Grid ─── */
+.joinGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  align-items: stretch;
+}
+
+/* FadeIn motion.div is the grid item — stretch it */
+.joinGrid > div {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── Member Card ─── */
+.memberCard {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  flex: 1;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+
+.memberCard:hover {
+  box-shadow: 0 6px 28px rgba(124,74,45,0.1);
+  transform: translateY(-2px);
+}
+
+/* Push the CTA button to the bottom of member card */
+.memberCard > button,
+.memberCard > a {
+  margin-top: auto;
+}
+
+/* ─── Donate Card ─── */
+.donateCard {
+  background: linear-gradient(140deg, var(--terra) 0%, #4E2C17 100%);
+  border-radius: 20px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  flex: 1;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+
+.donateCard:hover {
+  box-shadow: 0 6px 28px rgba(124,74,45,0.35);
+  transform: translateY(-2px);
+}
+
+/* Push the CTA button to the bottom of donate card */
+.donateCard > button,
+.donateCard > a {
+  margin-top: auto;
+}
+
+/* ─── Card Header ─── */
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1rem;
+}
+
+.memberIcon,
+.donateIcon {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.cardTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+}
+
+.cardTitleWhite { color: #fff; }
+
+/* ─── Card Body ─── */
+.cardDesc {
+  font-size: 14px;
+  color: var(--muted);
+  font-weight: 300;
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+}
+
+.cardDescLight {
+  color: rgba(255,255,255,0.8);
+}
+
+.feeBadge {
+  display: inline-block;
+  background: var(--jade-pale);
+  color: var(--jade);
+  border-radius: 8px;
+  padding: 7px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  border: 1px solid rgba(58,125,94,0.2);
+}
+
+.feeNote {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.feeNoteLight {
+  color: rgba(255,255,255,0.65);
+}
+
+/* ─── Sources Box ─── */
+.sourcesBox {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.75rem;
+}
+
+.sourcesLabel {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.sourcesList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 640px) {
+  .pageHero { padding: 3rem 1rem 2.5rem; }
+  .content { padding: 3rem 1rem 4rem; }
+  .joinGrid { grid-template-columns: 1fr; }
+}

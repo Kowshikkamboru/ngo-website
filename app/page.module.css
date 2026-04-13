@@ -1,142 +1,217 @@
-.page {
-  --background: #fafafa;
-  --foreground: #fff;
-
-  --text-primary: #000;
-  --text-secondary: #666;
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-  --button-secondary-border: #ebebeb;
-
+/* ─── HERO ─── */
+.hero {
+  background: linear-gradient(140deg, #7C4A2D 0%, #4E2C17 55%, #3A2010 100%);
+  color: #fff;
+  padding: 7rem 1.5rem 5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 92vh;
   display: flex;
-  flex: 1;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-geist-sans);
-  background-color: var(--background);
 }
 
-.main {
+/* Decorative orbs */
+.orb1 {
+  position: absolute; top: -80px; right: -80px;
+  width: 380px; height: 380px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,117,42,0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+.orb2 {
+  position: absolute; bottom: -120px; left: -60px;
+  width: 340px; height: 340px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(58,125,94,0.14) 0%, transparent 70%);
+  pointer-events: none;
+}
+.orb3 {
+  position: absolute; top: 40%; left: 50%;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255,255,255,0.025) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.heroBadge {
+  display: inline-block;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.28);
+  border-radius: 24px;
+  padding: 6px 18px;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1.75rem;
+  backdrop-filter: blur(6px);
+}
+
+.heroTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5.5vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+}
+
+.heroAccent { color: #F0A055; }
+
+.heroSub {
+  font-size: clamp(15px, 2vw, 17px);
+  color: rgba(255,255,255,0.78);
+  max-width: 520px;
+  margin: 0 auto 2.75rem;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+.heroActions {
   display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.heroStats {
+  display: flex;
+  justify-content: center;
+  gap: clamp(1.5rem, 5vw, 4rem);
+  margin-top: 4rem;
+  padding-top: 2.75rem;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  flex-wrap: wrap;
+}
+
+.stat { text-align: center; }
+
+.statNum {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: #F0A055;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 11px;
+  color: rgba(255,255,255,0.55);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 6px;
+  font-weight: 400;
+}
+
+/* ─── FOCUS SECTION ─── */
+.focusSection {
+  background: var(--white);
+  padding: 5rem 0;
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 3rem;
+}
+
+/* FadeIn motion.div is the grid item — make it pass height to the card inside */
+.cardsGrid > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.focusCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
   flex: 1;
-  width: 100%;
-  max-width: 800px;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  background-color: var(--foreground);
-  padding: 120px 60px;
 }
 
-.intro {
+.focusCard .cardDesc {
+  flex: 1;
+}
+
+.cardIcon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 24px;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 1rem;
+  transition: transform 0.25s;
 }
 
-.intro h1 {
-  max-width: 320px;
-  font-size: 40px;
+.focusCard:hover .cardIcon { transform: scale(1.1); }
+
+.icon-terra  { background: var(--terra-pale); }
+.icon-jade   { background: var(--jade-pale); }
+.icon-saffron { background: var(--saffron-pale); }
+
+.cardTitle {
+  font-size: 15px;
   font-weight: 600;
-  line-height: 48px;
-  letter-spacing: -2.4px;
-  text-wrap: balance;
-  color: var(--text-primary);
+  color: var(--ink);
+  margin-bottom: 0.4rem;
 }
 
-.intro p {
-  max-width: 440px;
-  font-size: 18px;
-  line-height: 32px;
-  text-wrap: balance;
-  color: var(--text-secondary);
+.cardDesc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.65;
+  font-weight: 300;
 }
 
-.intro a {
-  font-weight: 500;
-  color: var(--text-primary);
-}
-
-.ctas {
+/* ─── CTA Banner ─── */
+.ctaBanner {
+  background: linear-gradient(135deg, var(--terra-pale), var(--saffron-pale));
+  border: 1px solid rgba(212,117,42,0.2);
+  border-radius: 16px;
+  padding: 2rem 2.5rem;
   display: flex;
-  flex-direction: row;
-  width: 100%;
-  max-width: 440px;
-  gap: 16px;
-  font-size: 14px;
-}
-
-.ctas a {
-  display: flex;
-  justify-content: center;
   align-items: center;
-  height: 40px;
-  padding: 0 16px;
-  border-radius: 128px;
-  border: 1px solid transparent;
-  transition: 0.2s;
-  cursor: pointer;
-  width: fit-content;
-  font-weight: 500;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
-a.primary {
-  background: var(--text-primary);
-  color: var(--background);
-  gap: 8px;
+.ctaBannerTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4px;
 }
 
-a.secondary {
-  border-color: var(--button-secondary-border);
+.ctaBannerSub {
+  font-size: 14px;
+  color: var(--muted);
+  font-weight: 300;
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .cardsGrid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 600px) {
-  .main {
-    padding: 48px 24px;
-  }
-
-  .intro {
-    gap: 16px;
-  }
-
-  .intro h1 {
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -1.92px;
-  }
+  .hero { min-height: auto; padding: 5rem 1rem 3.5rem; }
+  .ctaBanner { flex-direction: column; text-align: center; }
+  .ctaBanner .btn { width: 100%; }
+  .cardsGrid { grid-template-columns: 1fr; }
 }
 
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
-
-  .page {
-    --background: #000;
-    --foreground: #000;
-
-    --text-primary: #ededed;
-    --text-secondary: #999;
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-    --button-secondary-border: #1a1a1a;
-  }
+@media (min-width: 601px) and (max-width: 768px) {
+  .cardsGrid { grid-template-columns: repeat(2, 1fr); }
 }

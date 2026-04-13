@@ -1,0 +1,168 @@
+.page {
+  min-height: 100vh;
+}
+
+.pageHero {
+  background: linear-gradient(135deg, var(--saffron-pale) 0%, #fff 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 4rem 1.5rem 3rem;
+  text-align: center;
+}
+
+.pageTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: var(--ink);
+  margin-top: 0.5rem;
+}
+
+.content {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 5rem;
+}
+
+/* ─── Management Box ─── */
+.mgmtBox {
+  background: var(--terra-pale);
+  border: 1px solid rgba(124, 74, 45, 0.2);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.mgmtLabel {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--terra);
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+}
+
+.mgmtGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.mgmtCard {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+
+.mgmtCard:hover {
+  box-shadow: 0 4px 16px rgba(124, 74, 45, 0.12);
+  transform: translateY(-2px);
+}
+
+.mgmtAvatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--terra), var(--terra-light));
+  color: white;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.75rem;
+}
+
+.mgmtTitle {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--saffron);
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+}
+
+.mgmtName {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* ─── Team Grid ─── */
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  align-items: stretch;
+}
+
+@media (max-width: 900px) {
+  .teamGrid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* FadeIn motion.div is the grid item — stretch it */
+.teamGrid > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.teamCard {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  transition: box-shadow 0.25s, transform 0.25s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.teamCard:hover {
+  box-shadow: 0 4px 20px rgba(124, 74, 45, 0.1);
+  transform: translateY(-3px);
+}
+
+.avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  color: white;
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.75rem;
+  transition: transform 0.25s;
+}
+
+.teamCard:hover .avatar {
+  transform: scale(1.08);
+}
+
+.memberName {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.memberRole {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 300;
+  margin-top: 3px;
+}
+
+@media (max-width: 640px) {
+  .pageHero { padding: 3rem 1rem 2.5rem; }
+  .content { padding: 3rem 1rem 4rem; }
+  .teamGrid { grid-template-columns: repeat(2, 1fr); }
+  .mgmtGrid { grid-template-columns: 1fr; }
+  .mgmtGrid { grid-template-columns: 1fr; }
+}
