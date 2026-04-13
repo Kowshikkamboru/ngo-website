@@ -1,3 +1,5 @@
+# NGO Website
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
@@ -34,3 +36,10 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Troubleshooting
+
+- **Hydration warnings during development:** If you see a console message like "A tree hydrated but some attributes of the server rendered HTML didn't match the client properties", it is often caused by browser extensions (for example, Grammarly) injecting attributes into the DOM before React hydrates. To resolve or avoid this during development:
+- Disable the extension for `localhost` or open the app in an incognito/private window.
+- You can safely ignore the warning in most cases — the app remains functional.
+- This project adds `suppressHydrationWarning` to the `<body>` in [app/layout.tsx](app/layout.tsx) to reduce noise from such mismatches.
